@@ -12,7 +12,7 @@ ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET")
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-logging.basicConfig(filename=f"logs/{date.today()}.logs", level=logging.DEBUG)
+logging.basicConfig(filename=f"logs/{date.today()}.log", level=logging.DEBUG)
 
 
 def handle_tweet(tweet):
