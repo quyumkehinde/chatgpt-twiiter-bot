@@ -2,6 +2,8 @@ import tweepy
 import openai
 import os
 import traceback
+import logging
+from datetime import date
 
 CONSUMER_KEY = os.getenv("CONSUMER_KEY")
 CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
@@ -9,6 +11,8 @@ ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET")
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+logging.basicConfig(filename=f"logs/{date.today()}.logs", level=logging.DEBUG)
 
 
 def handle_tweet(tweet):
@@ -30,5 +34,5 @@ try:
     stream.add_rules(tweepy.StreamRule("@ChatGPTBot_"))
     stream.on_tweet = handle_tweet
     stream.filter()
-except Exception:
-    traceback.print_exception()
+except Exception as e:
+    traceback.print_exception(e)
