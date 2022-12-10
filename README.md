@@ -1,1 +1,1 @@
-# chatgpt-twiiter-bot
+# chatgpt-twitter-bot
